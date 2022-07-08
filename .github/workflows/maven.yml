@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +20,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build project
-      run: mvn -B package --file pom.xml
-    - name: Execute tests
-      run: mvn test
+    - name: Test exercise 1
+      run: | 
+        cd src
+        cd exercise1
+        cd TotalVotes
+        mvn test
