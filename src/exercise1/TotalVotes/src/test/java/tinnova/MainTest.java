@@ -1,10 +1,10 @@
-package tinnova.tests;
+package tinnova;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.Test;
 
 import java.text.DecimalFormat;
+
+import static org.junit.Assert.assertEquals;
 
 
 /**
@@ -12,14 +12,14 @@ import java.text.DecimalFormat;
  */
 public class MainTest {
 
-    @Test
-    public void assertInvalidArgumentsInConstructor() {
+    @Test(expected = Exception.class)
+    public void assertInvalidArgumentsInConstructor() throws Exception {
         int totalVotes = 500;
         int validVotes = 10;
         int whiteVotes = 10;
         int nullVotes = 10;
 
-        assertThrows(Exception.class, () -> new VotesCalculator(totalVotes, validVotes, whiteVotes, nullVotes));
+        new VotesCalculator(totalVotes, validVotes, whiteVotes, nullVotes);
 
     }
 

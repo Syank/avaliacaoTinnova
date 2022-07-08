@@ -1,4 +1,4 @@
-package tinnova.tests;
+package tinnova;
 
 import java.text.DecimalFormat;
 

@@ -1,4 +1,4 @@
-package tinnova.tests;
+package tinnova;
 
 /**
  * An auxiliary class to help with the validation and calculation of votes, providing methods that can be used
