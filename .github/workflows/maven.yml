@@ -32,3 +32,9 @@ jobs:
         cd exercise2
         cd BubbleSort
         mvn test
+    - name: Test exercise 3
+      run: | 
+        cd src
+        cd exercise3
+        cd Fatorial
+        mvn test
