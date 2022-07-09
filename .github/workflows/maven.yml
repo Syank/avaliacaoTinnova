@@ -48,5 +48,6 @@ jobs:
       run: | 
         cd src
         cd exercise5
+        cd server
         cd carsCrud
         mvn test
