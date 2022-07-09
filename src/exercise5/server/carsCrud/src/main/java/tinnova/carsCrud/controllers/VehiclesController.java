@@ -54,7 +54,7 @@ public class VehiclesController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<HttpStatus> partialUpdateVehicleById(@PathVariable String id, @RequestBody Vehicle vehicle) {
+    public ResponseEntity<HttpStatus> partialUpdateVehicleById(@PathVariable String id, @RequestBody Vehicle vehicle) throws IllegalAccessException {
         boolean updated = vehicleService.partialUpdateVehicle(id, vehicle);
 
         if (updated) {

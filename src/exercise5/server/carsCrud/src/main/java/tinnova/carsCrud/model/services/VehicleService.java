@@ -6,6 +6,7 @@ import tinnova.carsCrud.model.dtos.VehiclesFilterCriteria;
 import tinnova.carsCrud.model.entities.Vehicle;
 import tinnova.carsCrud.model.repositories.VehicleRepository;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -51,13 +52,13 @@ public class VehicleService {
 
     }
 
-    public boolean partialUpdateVehicle(String id, Vehicle vehicle) {
-        Optional<Vehicle> vehicle1Found = findVehicleById(id);
+    public boolean partialUpdateVehicle(String id, Vehicle vehicle) throws IllegalAccessException {
+        Optional<Vehicle> vehicleFound = findVehicleById(id);
 
-        if (vehicle1Found.isPresent()) {
-            vehicle.setId(id);
+        if (vehicleFound.isPresent()) {
+            mergeValues(vehicle, vehicleFound.get());
 
-            saveVehicle(vehicle);
+            saveVehicle(vehicleFound.get());
 
             return true;
         }
@@ -67,6 +68,25 @@ public class VehicleService {
 
     public void deleteVehicle(String id) {
         vehicleRepository.deleteById(id);
+
+    }
+
+    private void mergeValues(Vehicle sourceVehicle, Vehicle targetVehicle) throws IllegalAccessException {
+        Field[] vehicleFields = sourceVehicle.getClass().getDeclaredFields();
+
+        for (int i = 0; i < vehicleFields.length; i++) {
+            Field field = vehicleFields[i];
+
+            field.setAccessible(true);
+
+            Object sourceFieldValue = field.get(sourceVehicle);
+
+            if (sourceFieldValue != null) {
+                field.set(targetVehicle, sourceFieldValue);
+
+            }
+
+        }
 
     }
 
