@@ -26,3 +26,9 @@ jobs:
         cd exercise1
         cd TotalVotes
         mvn test
+    - name: Test exercise 2
+      run: | 
+        cd src
+        cd exercise2
+        cd BubbleSort
+        mvn test
