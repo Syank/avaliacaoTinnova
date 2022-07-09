@@ -38,3 +38,9 @@ jobs:
         cd exercise3
         cd Fatorial
         mvn test
+    - name: Test exercise 4
+      run: | 
+        cd src
+        cd exercise4
+        cd SumOfMultiples
+        mvn test
