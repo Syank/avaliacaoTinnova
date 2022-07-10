@@ -1,0 +1,23 @@
+.dataInput {
+    display: flex;
+    flex-direction: row;
+
+    margin: 5px;
+}
+
+.dataInput > label {
+    margin-right: 5px;
+}
+
+.dataInput > input {
+    border: none;
+
+    border-bottom: solid black 1px;
+
+    outline: none;
+
+}
+
+.dataInput > input:focus {
+    background-color: gainsboro;
+}

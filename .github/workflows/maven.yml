@@ -44,3 +44,10 @@ jobs:
         cd exercise4
         cd SumOfMultiples
         mvn test
+    - name: Test exercise 5
+      run: | 
+        cd src
+        cd exercise5
+        cd server
+        cd carsCrud
+        mvn test
