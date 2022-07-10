@@ -22,7 +22,7 @@ public class CarsCrudApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Vehicle vehicle = new Vehicle();
-		vehicle.setVehicle("corsa");
+		vehicle.setVehicleName("corsa");
 		vehicle.setBrand("mercedes");
 		vehicle.setSold(false);
 		vehicle.setCarYear(1997);

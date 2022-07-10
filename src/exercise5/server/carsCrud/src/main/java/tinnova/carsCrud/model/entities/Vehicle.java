@@ -1,7 +1,6 @@
 package tinnova.carsCrud.model.entities;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,7 +11,7 @@ public class Vehicle {
     private String id;
 
     @Column
-    private String vehicle;
+    private String vehicleName;
 
     @Column
     private String brand;
@@ -42,12 +41,12 @@ public class Vehicle {
         this.id = id;
     }
 
-    public String getVehicle() {
-        return vehicle;
+    public String getVehicleName() {
+        return vehicleName;
     }
 
-    public void setVehicle(String vehicle) {
-        this.vehicle = vehicle;
+    public void setVehicleName(String vehicleName) {
+        this.vehicleName = vehicleName;
     }
 
     public String getBrand() {

@@ -26,7 +26,11 @@ public class VehicleService {
     }
 
     public List<Vehicle> findVehiclesByFilter(VehiclesFilterCriteria filter) {
-        List<Vehicle> vehiclesFound = vehicleRepository.findAll();
+        List<Vehicle> vehiclesFound = vehicleRepository.findByFilter(
+                filter.getBrand(), filter.getYear(),
+                filter.getDescription(), filter.getCreated(),
+                filter.getUpdated(), filter.getVehicle(),
+                filter.isSold());
 
         return vehiclesFound;
     }

@@ -3,6 +3,7 @@ package tinnova.carsCrud.model.dtos;
 import javax.persistence.Column;
 import javax.persistence.Lob;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class VehiclesFilterCriteria {
 
@@ -10,8 +11,9 @@ public class VehiclesFilterCriteria {
     private String brand;
     private int year;
     private String description;
-    private boolean sold;
-    private LocalDate created;
+    private Boolean sold;
+    private LocalDateTime created;
+    private LocalDateTime updated;
 
     public String getVehicle() {
         return vehicle;
@@ -29,18 +31,43 @@ public class VehiclesFilterCriteria {
         return description;
     }
 
-    public boolean isSold() {
+    public Boolean isSold() {
         return sold;
     }
 
-    public LocalDate getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public LocalDate getUpdated() {
+    public LocalDateTime getUpdated() {
         return updated;
     }
 
-    private LocalDate updated;
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setSold(Boolean sold) {
+        this.sold = sold;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
+    }
 }
