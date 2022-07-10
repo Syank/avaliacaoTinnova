@@ -80,13 +80,13 @@ export class VehicleDataCard extends React.Component {
         return (
         <div className='vehicleDatacontainer'>
             <div className='vehicleInformationsContainer'>
-                <DataInput text={"Nome:"} value={this.props["vehicleName"]} changeData={this.changeDataValue} dataField={"vehicleName"}/>
-                <DataInput text={"Marca:"} value={this.props["brand"]} changeData={this.changeDataValue} dataField={"brand"}/>
-                <DataInput text={"Ano:"} value={this.props["carYear"]} changeData={this.changeDataValue} dataField={"carYear"}/>
+                <DataInput text={"Nome:"} value={this.props["vehicleName"]} editable={this.props["editable"]} changeData={this.changeDataValue} dataField={"vehicleName"}/>
+                <DataInput text={"Marca:"} value={this.props["brand"]} editable={this.props["editable"]} changeData={this.changeDataValue} dataField={"brand"}/>
+                <DataInput text={"Ano:"} value={this.props["carYear"]} editable={this.props["editable"]} changeData={this.changeDataValue} dataField={"carYear"}/>
             </div>
             <div className='vehicleInformationsContainer'>
-                <DataInput text={"Descrição:"} value={this.props["description"]} changeData={this.changeDataValue} dataField={"description"}/>
-                <DataInput text={"Vendido:"} value={this.props["sold"]} changeData={this.changeDataValue} dataField={"sold"}/>
+                <DataInput text={"Descrição:"} value={this.props["description"]} editable={this.props["editable"]} changeData={this.changeDataValue} dataField={"description"}/>
+                <DataInput text={"Vendido:"} value={this.props["sold"]} editable={this.props["editable"]} changeData={this.changeDataValue} dataField={"sold"}/>
                 <DataInput text={"Data de criação:"} editable={false} value={this.props["created"]}/>
                 <DataInput text={"Data de atualização:"} editable={false} value={this.props["updated"]}/>
             </div>
