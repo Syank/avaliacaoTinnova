@@ -1,5 +1,7 @@
 package tinnova.carsCrud.model.dtos;
 
+import tinnova.carsCrud.model.enumerations.VehicleBrand;
+
 import javax.persistence.Column;
 import javax.persistence.Lob;
 import java.time.LocalDate;
@@ -8,7 +10,7 @@ import java.time.LocalDateTime;
 public class VehiclesFilterCriteria {
 
     private String vehicle;
-    private String brand;
+    private VehicleBrand brand;
     private Integer year;
     private String description;
     private Boolean sold;
@@ -19,7 +21,7 @@ public class VehiclesFilterCriteria {
         return vehicle;
     }
 
-    public String getBrand() {
+    public VehicleBrand getBrand() {
         return brand;
     }
 
@@ -47,7 +49,7 @@ public class VehiclesFilterCriteria {
         this.vehicle = vehicle;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(VehicleBrand brand) {
         this.brand = brand;
     }
 

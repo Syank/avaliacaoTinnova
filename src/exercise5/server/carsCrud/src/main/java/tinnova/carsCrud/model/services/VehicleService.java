@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tinnova.carsCrud.model.dtos.VehiclesFilterCriteria;
 import tinnova.carsCrud.model.entities.Vehicle;
+import tinnova.carsCrud.model.enumerations.VehicleBrand;
 import tinnova.carsCrud.model.repositories.VehicleRepository;
 
 import java.lang.reflect.Field;
@@ -19,20 +20,23 @@ public class VehicleService {
     @Autowired
     private VehicleRepository vehicleRepository;
 
-    public List<Vehicle> findAllVehicles() {
-        List<Vehicle> vehiclesFound = vehicleRepository.findAll();
-
-        return vehiclesFound;
-    }
-
     public List<Vehicle> findVehiclesByFilter(VehiclesFilterCriteria filter) throws IllegalAccessException {
         boolean isFilterDefined = isFilterDefined(filter);
 
         List<Vehicle> vehiclesFound;
 
         if (isFilterDefined) {
+            VehicleBrand brand = filter.getBrand();
+
+            String brandValue = null;
+
+            if (brand != null) {
+                brandValue = brand.getValue();
+
+            }
+
             vehiclesFound = vehicleRepository.findByFilter(
-                    filter.getBrand(), filter.getYear(),
+                    brandValue, filter.getYear(),
                     filter.getDescription(), filter.getCreated(),
                     filter.getUpdated(), filter.getVehicle(),
                     filter.isSold());
