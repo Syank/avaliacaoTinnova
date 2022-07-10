@@ -36,3 +36,6 @@ Caso o navegador não abra sozinho, você pode acessar a URL *http://localhost:3
 O repositório conta com o ***CI*** fornecido pelo ***GitHub Actions***, onde, após cada commit ou pull request, os testes unitários de todos os exercícios são executados para garantir a validação e integridade do código.
 
 Para o exercício 5, foi utilizado o banco de dados em memória **H2 Database** para a persistência dos dados, dessa forma não é necessário mais nenhuma configuração de ambiente extra a fim de simplificar o processo de execução dos exercícios.
+
+Com o servidor inicializado, é possível acessar o banco de dados de forma interativa através da URL ***http://localhost:8080/h2-console***.
+Uma janela de login será aberta, no campo **JDBC URL** insira *jdbc:h2:mem:testdb*. A senha e usuários são, ambos, **sa**
