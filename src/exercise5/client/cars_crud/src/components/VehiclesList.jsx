@@ -1,28 +1,69 @@
 import React from 'react';
 import '../assets/styles/VehiclesList.css';
+import { VehicleDataCard } from './VehicleDataCard';
 
 export class VehiclesList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            vehiclesListData: []
+        }
+
+        this.removeFromList = this.removeFromList.bind(this);
+        this.buildVehiclesList = this.buildVehiclesList.bind(this);
+
+    }
+
+    async componentDidMount() {
+        const response = await fetch("http://localhost:8080/veiculos");
+
+        if (response['ok']) {
+            const vehiclesListData = await response.json();
+
+            this.setState({vehiclesListData: vehiclesListData})
+        }
+
+    }
+
+    removeFromList(id) {
+        const vehiclesListData = this.state['vehiclesListData'];
+
+        for (let i = vehiclesListData.length - 1; i >= 0; i--) {
+            const vehicleData = vehiclesListData[i];
+            
+            if (vehicleData["id"] === id) {
+                vehiclesListData.splice(i, 1);
+
+            }
+
+        }
+
+        this.setState({vehiclesListData: vehiclesListData});
+    }
+
+    buildVehiclesList() {
+        const vehiclesListData = this.state['vehiclesListData'];
+
+        const vehicleCards = [];
+
+        for (let i = 0; i < vehiclesListData.length; i++) {
+            const vehicleData = vehiclesListData[i];
+            
+            const component = (
+                <VehicleDataCard key={"react-list-key-" + i} editable={true} removeFromList={this.removeFromList} {...vehicleData}/>
+            );
+
+            vehicleCards.push(component);
+        }
+
+        return vehicleCards;
+    }
 
     render() {
         return (
             <div className='listContainer'>
-                <div className='vehicleDatacontainer'>
-                    <div className='vehicleInformationsContainer'>
-                        <label>Nome: Celta</label>
-                        <label>Marca: Ford</label>
-                        <label>Ano: 2020</label>
-                    </div>
-                    <div className='vehicleInformationsContainer'>
-                        <label>Descrição: as das daksldjksa askjd asjk lads</label>
-                        <label>Vendido: Sim</label>
-                        <label>Data de criação: 16/09/1997</label>
-                        <label>Data de atualização: 16/09/1996</label>
-                    </div>
-                    <div className='vehicleActions'>
-                        <button className='actionButton'>Salvar alterações</button>
-                        <button className='actionButton'>Excluír veículo</button>
-                    </div>
-                </div>
+                {this.buildVehiclesList()}
             </div>
         );
     }

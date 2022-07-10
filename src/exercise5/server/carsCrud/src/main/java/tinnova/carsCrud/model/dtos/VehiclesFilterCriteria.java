@@ -9,7 +9,7 @@ public class VehiclesFilterCriteria {
 
     private String vehicle;
     private String brand;
-    private int year;
+    private Integer year;
     private String description;
     private Boolean sold;
     private LocalDateTime created;
@@ -23,7 +23,7 @@ public class VehiclesFilterCriteria {
         return brand;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
@@ -51,7 +51,7 @@ public class VehiclesFilterCriteria {
         this.brand = brand;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 

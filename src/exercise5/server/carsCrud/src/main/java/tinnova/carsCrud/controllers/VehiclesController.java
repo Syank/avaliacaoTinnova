@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/veiculos")
+@CrossOrigin
 public class VehiclesController {
 
     @Autowired
@@ -22,7 +23,7 @@ public class VehiclesController {
 
 
     @GetMapping
-    public ResponseEntity<List<Vehicle>> getVehiclesByFilters(VehiclesFilterCriteria filter) {
+    public ResponseEntity<List<Vehicle>> getVehiclesByFilters(VehiclesFilterCriteria filter) throws IllegalAccessException {
         List<Vehicle> vehiclesFound = vehicleService.findVehiclesByFilter(filter);
 
         return new ResponseEntity<List<Vehicle>>(vehiclesFound, HttpStatus.OK);

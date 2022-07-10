@@ -25,12 +25,22 @@ public class VehicleService {
         return vehiclesFound;
     }
 
-    public List<Vehicle> findVehiclesByFilter(VehiclesFilterCriteria filter) {
-        List<Vehicle> vehiclesFound = vehicleRepository.findByFilter(
-                filter.getBrand(), filter.getYear(),
-                filter.getDescription(), filter.getCreated(),
-                filter.getUpdated(), filter.getVehicle(),
-                filter.isSold());
+    public List<Vehicle> findVehiclesByFilter(VehiclesFilterCriteria filter) throws IllegalAccessException {
+        boolean isFilterDefined = isFilterDefined(filter);
+
+        List<Vehicle> vehiclesFound;
+
+        if (isFilterDefined) {
+            vehiclesFound = vehicleRepository.findByFilter(
+                    filter.getBrand(), filter.getYear(),
+                    filter.getDescription(), filter.getCreated(),
+                    filter.getUpdated(), filter.getVehicle(),
+                    filter.isSold());
+
+        } else {
+            vehiclesFound = vehicleRepository.findAll();
+
+        }
 
         return vehiclesFound;
     }
@@ -92,6 +102,25 @@ public class VehicleService {
 
         }
 
+    }
+
+
+    private boolean isFilterDefined(VehiclesFilterCriteria filter) throws IllegalAccessException {
+        Field[] filterFields = filter.getClass().getDeclaredFields();
+
+        for (int i = 0; i < filterFields.length; i++) {
+            Field field = filterFields[i];
+
+            field.setAccessible(true);
+
+            Object filterFieldValue = field.get(filter);
+
+            if (filterFieldValue != null) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
