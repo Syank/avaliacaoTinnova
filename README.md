@@ -35,4 +35,4 @@ Caso o navegador não abra sozinho, você pode acessar a URL *http://localhost:3
 ##### Observações
 O repositório conta com o ***CI*** fornecido pelo ***GitHub Actions***, onde, após cada commit ou pull request, os testes unitários de todos os exercícios são executados para garantir a validação e integridade do código.
 
-Para o exercício 5, foi utilizado o banco de dados **H2 Database** para a persistência dos dados, dessa forma não é necessário mais nenhuma configuração de ambiente extra a fim de simplificar o processo de execução dos exercícios.
+Para o exercício 5, foi utilizado o banco de dados em memória **H2 Database** para a persistência dos dados, dessa forma não é necessário mais nenhuma configuração de ambiente extra a fim de simplificar o processo de execução dos exercícios.
