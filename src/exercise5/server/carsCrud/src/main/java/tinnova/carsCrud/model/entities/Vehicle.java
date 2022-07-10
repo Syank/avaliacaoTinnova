@@ -6,6 +6,12 @@ import tinnova.carsCrud.model.enumerations.VehicleBrand;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
+/**
+ * An entity class to map the Vehicle entity in the database
+ *
+ * @author Rafael Furtado
+ */
 @Entity
 @Table(name = "vehicle")
 public class Vehicle {

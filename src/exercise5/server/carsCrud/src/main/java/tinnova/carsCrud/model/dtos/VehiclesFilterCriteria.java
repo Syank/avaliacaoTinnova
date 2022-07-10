@@ -2,11 +2,14 @@ package tinnova.carsCrud.model.dtos;
 
 import tinnova.carsCrud.model.enumerations.VehicleBrand;
 
-import javax.persistence.Column;
-import javax.persistence.Lob;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+
+/**
+ * A DTO class to be used to map all the attributes that can be used as filter in queries to search for vehicles
+ *
+ * @author Rafael Furtado
+ */
 public class VehiclesFilterCriteria {
 
     private String vehicle;

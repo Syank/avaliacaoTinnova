@@ -1,5 +1,11 @@
 package tinnova.carsCrud.model.enumerations;
 
+
+/**
+ * An enumeration class to define all the valid types of brands for vehicles
+ *
+ * @author Rafael Furtado
+ */
 public enum VehicleBrand {
     FORD("Ford"),
     BMW("BMW"),
