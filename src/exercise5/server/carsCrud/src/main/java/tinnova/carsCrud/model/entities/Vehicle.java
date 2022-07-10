@@ -1,5 +1,8 @@
 package tinnova.carsCrud.model.entities;
 
+import tinnova.carsCrud.model.converters.VehicleBrandConverter;
+import tinnova.carsCrud.model.enumerations.VehicleBrand;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -14,7 +17,8 @@ public class Vehicle {
     private String vehicleName;
 
     @Column
-    private String brand;
+    @Convert(converter = VehicleBrandConverter.class)
+    private VehicleBrand brand;
 
     @Column
     private Integer carYear;
@@ -49,11 +53,11 @@ public class Vehicle {
         this.vehicleName = vehicleName;
     }
 
-    public String getBrand() {
+    public VehicleBrand getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(VehicleBrand brand) {
         this.brand = brand;
     }
 

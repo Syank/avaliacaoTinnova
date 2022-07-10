@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tinnova.carsCrud.model.entities.Vehicle;
+import tinnova.carsCrud.model.enumerations.VehicleBrand;
 import tinnova.carsCrud.model.services.VehicleService;
 
 import java.util.UUID;
@@ -23,7 +24,7 @@ public class CarsCrudApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Vehicle vehicle = new Vehicle();
 		vehicle.setVehicleName("corsa");
-		vehicle.setBrand("mercedes");
+		vehicle.setBrand(VehicleBrand.FERRARI);
 		vehicle.setSold(false);
 		vehicle.setCarYear(1997);
 		vehicle.setDescription("um carrito qualquer");
