@@ -22,6 +22,7 @@ public class CarsCrudApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		// Inserts some initial data in the database
 		Vehicle vehicle1 = new Vehicle();
 		vehicle1.setVehicleName("Ferrari v2");
 		vehicle1.setBrand(VehicleBrand.FERRARI);
