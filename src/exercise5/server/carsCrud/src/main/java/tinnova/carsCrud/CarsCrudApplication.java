@@ -22,15 +22,24 @@ public class CarsCrudApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Vehicle vehicle = new Vehicle();
-		vehicle.setVehicleName("corsa");
-		vehicle.setBrand(VehicleBrand.FERRARI);
-		vehicle.setSold(false);
-		vehicle.setCarYear(1997);
-		vehicle.setDescription("um carrito qualquer");
-		vehicle.setId(UUID.randomUUID().toString());
+		Vehicle vehicle1 = new Vehicle();
+		vehicle1.setVehicleName("Ferrari v2");
+		vehicle1.setBrand(VehicleBrand.FERRARI);
+		vehicle1.setSold(false);
+		vehicle1.setCarYear(2015);
+		vehicle1.setDescription("Um carro muito rápido");
+		vehicle1.setId(UUID.randomUUID().toString());
 
-		vehicleService.createVehicle(vehicle);
+		Vehicle vehicle2 = new Vehicle();
+		vehicle2.setVehicleName("Uno");
+		vehicle2.setBrand(VehicleBrand.FIAT);
+		vehicle2.setSold(true);
+		vehicle2.setCarYear(2009);
+		vehicle2.setDescription("Fica mais rápido se tiver uma escada em cima");
+		vehicle2.setId(UUID.randomUUID().toString());
+
+		vehicleService.createVehicle(vehicle1);
+		vehicleService.createVehicle(vehicle2);
 
 	}
 

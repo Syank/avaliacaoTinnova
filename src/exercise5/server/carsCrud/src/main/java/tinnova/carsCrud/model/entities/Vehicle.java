@@ -61,11 +61,11 @@ public class Vehicle {
         this.brand = brand;
     }
 
-    public int getCarYear() {
+    public Integer getCarYear() {
         return carYear;
     }
 
-    public void setCarYear(int carYear) {
+    public void setCarYear(Integer carYear) {
         this.carYear = carYear;
     }
 
@@ -77,11 +77,11 @@ public class Vehicle {
         this.description = description;
     }
 
-    public boolean isSold() {
+    public Boolean isSold() {
         return sold;
     }
 
-    public void setSold(boolean sold) {
+    public void setSold(Boolean sold) {
         this.sold = sold;
     }
 
